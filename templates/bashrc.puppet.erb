@@ -42,11 +42,3 @@ function git_color ()
 
 # Call the above functions inside the PS1 declaration
 export PS1='\[$(git_color)\]$(parse_git_branch)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$ '
-
-<% if @hostname =~ /learn/ -%>
-export PROMPT_COMMAND='history -a; history -r'
-
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && exec tmux && return
-[[ -z "$TMUX" ]] && exec tmux && exec tmux attach
-<% end -%>
